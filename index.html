@@ -52,7 +52,7 @@ input,select{width:100%;padding:10px 12px;font-size:16px;border:1px solid var(--
   <div class="top-rent">
     <label id="rent-label">單次給付租金金額 (元)</label>
     <input type="text" inputmode="numeric" id="rent" value="0" oninput="handleRentInput(this)" onfocus="this.select()">
-    <div class="field-note" id="rent-note">※ 扣繳與二代健保依「單次給付金額」判斷；<br>若為季付或半年付，請輸入單次給付金額</div>
+    <div class="field-note" id="rent-note">※ 扣繳與二代健保依「單次給付金額」判斷；若為季付或半年付，請輸入單次給付金額</div>
   </div>
 
   <div class="tabs">
@@ -66,7 +66,7 @@ input,select{width:100%;padding:10px 12px;font-size:16px;border:1px solid var(--
       <div class="lt-list">
         <div class="lt-item on" id="lt-local" onclick="slt('local')">
           <div class="lt-title">本國個人房東(境内居住者)</div>
-          <div class="lt-sub">扣繳10%|單次稅額逾2,000元扣繳;<br>二代健保2.11%|單次達20,000元扣繳</div>
+          <div class="lt-sub">扣繳10%|單次稅額逾2,000元;<br>二代健保2.11%|單次達20,000元</div>
         </div>
         <div class="lt-item" id="lt-foreign" onclick="slt('foreign')">
           <div class="lt-title">非境内居住者(含外國籍非居住者)</div>
@@ -170,7 +170,7 @@ function updateInputLabel(){
   var note = document.getElementById('rent-note');
   if (activeTab === 1) {
     lbl.innerText = '單次給付租金金額 (元)';
-    note.innerHTML = '※ 扣繳與二代健保依「單次給付金額」判斷；<br>若為季付或半年付，請輸入單次給付金額';
+    note.innerHTML = '※ 扣繳與二代健保依「單次給付金額」判斷；若為季付或半年付，請輸入單次給付金額';
   } else {
     lbl.innerText = '每月租金金額 (元)';
     note.innerHTML = '※ 年度試算假設每月給付一次，<br>且所選出租月份均符合對應出租型態與資格';
