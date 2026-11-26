@@ -19,14 +19,14 @@ body{margin:0;padding:16px;background:var(--bg);color:var(--t);display:flex;just
 input,select{width:100%;padding:10px 12px;font-size:16px;border:1px solid var(--b);border-radius:10px;background:#fafcfb}
 .top-rent{background:#f7faf8;border:1px solid #cce3d5;border-radius:12px;padding:12px;margin-bottom:14px}
 .top-rent input{background:#fff;font-size:18px;font-weight:700;color:var(--p)}
-.field-note{margin-top:5px;font-size:11px;color:var(--m);line-height:1.4}
+.field-note{margin-top:6px;font-size:11px;color:var(--m);line-height:1.5}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .lt-list{display:grid;gap:7px}
 .lt-item{padding:9px 12px;border:1px solid var(--b);border-radius:10px;background:#fafcfb;cursor:pointer;user-select:none}
 .lt-item.on{border-color:var(--p);background:#eef5f1}
 .lt-title{font-size:14px;font-weight:700;color:var(--t)}
 .lt-item.on .lt-title{color:var(--p)}
-.lt-sub{font-size:12px;color:#888;margin-top:2px}
+.lt-sub{font-size:12px;color:#888;margin-top:3px;line-height:1.5}
 .rg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
 .ri{text-align:center;padding:11px;border:1px solid var(--b);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;background:#fafcfb;user-select:none}
 .ri.on{border-color:var(--p);background:#eef5f1;color:var(--p)}
@@ -52,7 +52,7 @@ input,select{width:100%;padding:10px 12px;font-size:16px;border:1px solid var(--
   <div class="top-rent">
     <label id="rent-label">單次給付租金金額 (元)</label>
     <input type="text" inputmode="numeric" id="rent" value="0" oninput="handleRentInput(this)" onfocus="this.select()">
-    <div class="field-note" id="rent-note">※ 扣繳與二代健保依「單次給付金額」判斷；年度試算頁籤則視為每月租金（假設每月給付一次）</div>
+    <div class="field-note" id="rent-note">※ 扣繳與二代健保依「單次給付金額」判斷；<br>若為季付或半年付，請輸入單次給付金額</div>
   </div>
 
   <div class="tabs">
@@ -65,16 +65,16 @@ input,select{width:100%;padding:10px 12px;font-size:16px;border:1px solid var(--
       <label>房東身分</label>
       <div class="lt-list">
         <div class="lt-item on" id="lt-local" onclick="slt('local')">
-          <div class="lt-title">本國個人房東 (境內居住者)</div>
-          <div class="lt-sub">（扣繳10%｜單次稅額逾2,000元扣繳；二代健保2.11%｜單次達20,000元扣繳）</div>
+          <div class="lt-title">本國個人房東(境内居住者)</div>
+          <div class="lt-sub">扣繳10%|單次稅額逾2,000元扣繳;<br>二代健保2.11%|單次達20,000元扣繳</div>
         </div>
         <div class="lt-item" id="lt-foreign" onclick="slt('foreign')">
-          <div class="lt-title">非境內居住者 (含外國籍非居住者)</div>
-          <div class="lt-sub">（扣繳20%，無2,000元免扣門檻；健保依實際投保身分判定）</div>
+          <div class="lt-title">非境内居住者(含外國籍非居住者)</div>
+          <div class="lt-sub">扣繳20%,無2,000元免扣門檻;健保依實際投保身分判定</div>
         </div>
         <div class="lt-item" id="lt-corp" onclick="slt('corp')">
-          <div class="lt-title">法人／公司房東 (依法開立統一發票)</div>
-          <div class="lt-sub">（開立發票免扣繳所得稅與二代健保；營業稅另依發票約定確認）</div>
+          <div class="lt-title">法人/公司房東(依法開立統一發票)</div>
+          <div class="lt-sub">開立發票免扣繳所得稅與二代健保;營業稅另依發票約定確認</div>
         </div>
       </div>
     </div>
@@ -170,10 +170,10 @@ function updateInputLabel(){
   var note = document.getElementById('rent-note');
   if (activeTab === 1) {
     lbl.innerText = '單次給付租金金額 (元)';
-    note.innerText = '※ 扣繳與二代健保依「單次給付金額」判斷；若為季付或半年付，請輸入單次給付金額';
+    note.innerHTML = '※ 扣繳與二代健保依「單次給付金額」判斷；<br>若為季付或半年付，請輸入單次給付金額';
   } else {
     lbl.innerText = '每月租金金額 (元)';
-    note.innerText = '※ 年度試算假設每月給付一次，且所選出租月份均符合對應出租型態與資格';
+    note.innerHTML = '※ 年度試算假設每月給付一次，<br>且所選出租月份均符合對應出租型態與資格';
   }
 }
 
